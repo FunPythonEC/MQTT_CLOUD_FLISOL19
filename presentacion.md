@@ -1,9 +1,11 @@
-<!-- $theme: default -->
+<!-- $theme: gaia -->
 ![bg](recursos/bckimage.png)
 # Uso de IoT servers con MicroPython
 ### Ponentes:
 * Jhon Merchan 
 * Steven Silva
+![100%](recursos/matrix.gif)
+
 
 ---
 
@@ -48,7 +50,7 @@
 * Sencillo
 * Multiplataforma
 * Libre
-![bg original 200%](recursos/tenor.gif)
+![bg original 100%](recursos/tenor.gif)
 
 ---
 ![bg](recursos/bckimage.png)
@@ -68,13 +70,63 @@
 ## MQTT y MicroPython
 
 ---
-
+<!-- $theme: default -->
 ## Demostración
 
 ### Código
 
+#### Imports
+
+~~~~ python
+import network
+from robust import MQTTClient
+import time
+~~~~
 ---
+
+#### Conexión WiFi
+
+~~~~ python
+sta_if = network.WLAN(network.STA_IF)
+sta_if.active(True)
+sta_if.connect("SSID", "PASS")
+time.sleep(5)
+~~~~
+
+---
+#### Configuración Ubidots items
+~~~~ python
+ubidotsToken = "ubiotstoken"
+clientID = "clientid"
+topic=b"/v1.6/devices/esp32lora"
+~~~~
+
+
+#### Creación de objeto MQTT
+
+~~~~ python
+client = MQTTClient(clientID, "mqtt://things.ubidots.com", 
+	1883, user = ubidotsToken, 
+        password = ubidotsToken) #creacion de objeto
+client.connect()
+~~~~
+---
+
+
+
+---
+![bg](recursos/bckimage.png)
+
 # Contacto
+
+* GitHub: https://github.com/FunPythonEC
+* Correo: funpython.ec@gmail.com
+* Instagram: @funpython
+---
+<!-- $theme: default -->
+![bg original 70%](recursos/fpyig.jpeg)
+
+
 
 
 
