@@ -1,10 +1,13 @@
-<!-- $theme: gaia -->
-![bg](recursos/bckimage.png)
+<!--
+$theme: gaia
+template: invert
+-->
+
+![bg](recursos/iot.png)
 # Uso de IoT servers con MicroPython
-### Ponentes:
+##### Ponentes:
 * Jhon Merchan 
 * Steven Silva
-![100%](recursos/matrix.gif)
 
 
 ---
@@ -13,46 +16,33 @@
 
 ---
 
-## Componentes
+![bg](recursos/bckimage.png)
+## Infraestructura común de IoT
 
 ---
 
-![bg original 90%](recursos/micropythonlogo.jpeg)
-
----
-
-![bg original 100%](recursos/esp.jpeg)
-
----
-
-![bg original 100%](recursos/espressif.jpeg)
-
----
-
-![bg original 100%](recursos/iot.png)
 
 
 ---
 
-![bg original 100%](recursos/awsiot.jpeg)
-![bg original 100%](recursos/cayenne.jpeg)
-![bg original 100%](recursos/ubidots.jpeg)
-
-
----
 ![bg](recursos/bckimage.png)
 
 ### MicroPython
 
-* Python3
-* Flexible
+* Python3 compacta
 * Rapido de aprender
 * Sencillo
 * Multiplataforma
 * Libre
-![bg original 100%](recursos/tenor.gif)
+![bg original 150%](recursos/tenor.gif)
 
 ---
+
+![bg](recursos/bckimage.png)
+![ original 270%](recursos/firmware-esp.jpg)
+
+---
+
 ![bg](recursos/bckimage.png)
 
 ### Microcontroladores ESP
@@ -60,6 +50,8 @@
 * Chip de bajo costo.
 * Pila TCP/IP para conexión WiFi.
 * Soporta una variedad de lenguajes.
+* Procesador 32 bits
+* Memoria flash y RAM
 
 ---
 
@@ -70,6 +62,7 @@
 ## MQTT y MicroPython
 
 ---
+
 <!-- $theme: default -->
 ## Demostración
 
@@ -79,42 +72,71 @@
 
 ~~~~ python
 import network
-from robust import MQTTClient
+from umqtt.robust import MQTTClient
 import time
 ~~~~
+
 ---
 
 #### Conexión WiFi
 
 ~~~~ python
-sta_if = network.WLAN(network.STA_IF)
-sta_if.active(True)
-sta_if.connect("SSID", "PASS")
+sta= network.WLAN(network.STA_IF)
+sta.active(True)
+sta.connect("SSID", "PASS")
 time.sleep(5)
 ~~~~
 
 ---
+
 #### Configuración Ubidots items
 ~~~~ python
 ubidotsToken = "ubiotstoken"
 clientID = "clientid"
-topic=b"/v1.6/devices/esp32lora"
+topic=b"/v1.6/devices/{devicelabel}"
 ~~~~
-
 
 #### Creación de objeto MQTT
 
 ~~~~ python
-client = MQTTClient(clientID, "mqtt://things.ubidots.com", 
+client = MQTTClient(clientID,"mqtt://things.ubidots.com", 
 	1883, user = ubidotsToken, 
         password = ubidotsToken) #creacion de objeto
 client.connect()
 ~~~~
----
-
-
 
 ---
+
+#### Publish
+~~~~ python
+msg = b'{"temp":20}'
+print(msg)
+client.publish(topic, msg)
+~~~~
+
+#### Subscribe
+~~~~ python
+client.set_callback(cb)                    
+client.subscribe(bytes(topic, 'utf-8'))
+
+while True:
+    try:
+        client.wait_msg()
+        
+    except Exception as e:
+        print(e)
+        client.disconnect()
+~~~~
+
+---
+
+##### Links a repos
+
+* https://github.com/FunPythonEC/MQTT_CLOUD_FLISOL19
+* https://github.com/FunPythonEC/ubidots_mqtt_upy
+
+---
+
 ![bg](recursos/bckimage.png)
 
 # Contacto
@@ -122,7 +144,9 @@ client.connect()
 * GitHub: https://github.com/FunPythonEC
 * Correo: funpython.ec@gmail.com
 * Instagram: @funpython
+
 ---
+
 <!-- $theme: default -->
 ![bg original 70%](recursos/fpyig.jpeg)
 
