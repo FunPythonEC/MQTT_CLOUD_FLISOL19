@@ -4,17 +4,6 @@ import network
 from neopixel import NeoPixel
 import machine as m
 
-
-lednum=20
-nppin=22
-
-nppin=m.Pin(nppin)
-np=NeoPixel(nppin, lednum)
-
-def cb(topic,msg):
-	np[:]=(msg)
-	mp.write()
-
 sta_if = network.WLAN(network.STA_IF)
 sta_if.active(True)
 sta_if.connect("SSID", "PASS")
@@ -29,13 +18,10 @@ topic=b"/v1.6/devices/{devicelabel}" #el topic define a que device en especifico
 client = MQTTClient(clientID, "industrial.api.ubidots.com", 1883, user = ubidotsToken, password = ubidotsToken) #creacion de objeto
 client.connect() #conexion a ubidots
 
-client.set_callback(cb)                    
-client.subscribe(bytes(topic, 'utf-8'))
-
 while True:
-	try:
-        client.wait_msg()        
-    except Exception as e:
-        print(e)
-        client.disconnect()
-		sys.exit()
+	time.sleep(2)
+	msg='20|30|200'
+	R, G, B = msg.split('|')
+	msg = b'{"R":%s, "G":%s, "B":%s}' % (int(R), int(G), int(B))
+	print(msg)
+	client.publish(topic, msg)

@@ -22,7 +22,8 @@ client = MQTTClient(clientID, "industrial.api.ubidots.com", 1883, user = ubidots
 client.connect() #conexion a ubidots
 
 #ejemplo de uso del metodo de publicacion
+msg='20|30'
 temp, humid = msg.split('|')
-msg = b'{"temp":%s, "humid":%s}' % (temp, humid)
+msg = b'{"temp":%s, "humid":%s}' % (int(temp), int(humid))
 print(msg)
 client.publish(topic, msg)
