@@ -18,7 +18,7 @@ topic=b"/v1.6/devices/esp32lora" #el topic define a que device en especifico es 
 								 #b"/v1.6/devices/{NOMBRE_DISPOSITIVO}" en el que NOMBRE_DISPOSITIVO es quien
 								 #define entre los devices creados al cual se quiere subir el dato
 
-client = MQTTClient(clientID, "mqtt://things.ubidots.com", 1883, user = ubidotsToken, password = ubidotsToken) #creacion de objeto
+client = MQTTClient(clientID, "industrial.api.ubidots.com", 1883, user = ubidotsToken, password = ubidotsToken) #creacion de objeto
 client.connect() #conexion a ubidots
 
 #ejemplo de uso del metodo de publicacion
