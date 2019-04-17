@@ -13,7 +13,7 @@ np=NeoPixel(nppin, lednum)
 
 def cb(topic,msg):
 	np[:]=(msg)
-	mp.write()
+	np.write()
 
 sta_if = network.WLAN(network.STA_IF)
 sta_if.active(True)
