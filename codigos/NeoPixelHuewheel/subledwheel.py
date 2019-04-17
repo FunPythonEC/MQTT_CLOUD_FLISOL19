@@ -32,17 +32,16 @@ def cb(topic,msg):
         for i in range(0,lednum):
             np[i]=(r,g,b)
         np.write()
-        time.sleep_ms(500)
     except Exception as e:
         print(e)
         
 
 sta_if = network.WLAN(network.STA_IF)
 sta_if.active(True)
-sta_if.connect("Asian Coffee Roaster.net", "espresso")
+sta_if.connect("ssid", "pass")
 time.sleep(5)
 
-ubidotsToken = "BBFF-s9KVriflqKas0akiIM4FhI4FoLLbV3"
+ubidotsToken = "token"
 clientID = "espcontrol"
 topic=b"/v1.6/devices/espprueba/r/lv" #el topic define a que device en especifico es que se va a subir datos
                                  #b"/v1.6/devices/{NOMBRE_DISPOSITIVO}" en el que NOMBRE_DISPOSITIVO es quien

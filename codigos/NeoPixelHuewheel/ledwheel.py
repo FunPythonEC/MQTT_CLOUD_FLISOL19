@@ -11,10 +11,10 @@ import time
 from umqtt.robust import MQTTClient
 #conexion wifi
 sta_if = network.WLAN(network.STA_IF); sta_if.active(True)
-sta_if.connect("Asian Coffee Roaster.net", "espresso")
+sta_if.connect("ssid", "pass")
 time.sleep(5)
 
-ubidotsToken = "BBFF-s9KVriflqKas0akiIM4FhI4FoLLbV3"
+ubidotsToken = "token"
 clientID = "espleds"
 topic=b"/v1.6/devices/espprueba" #el topic define a que device en especifico es que se va a subir datos
                                  #b"/v1.6/devices/{NOMBRE_DISPOSITIVO}" en el que NOMBRE_DISPOSITIVO es quien
