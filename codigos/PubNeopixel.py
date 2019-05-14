@@ -1,13 +1,13 @@
-from umqtt.robust import MQTTClient
+#librerias usadas
+from umqtt.robust import MQTTClient 
 import time
 import network
-from neopixel import NeoPixel
-import machine as m
 
+#conexion a la red wifi
 sta_if = network.WLAN(network.STA_IF)
 sta_if.active(True)
 sta_if.connect("SSID", "PASS")
-time.sleep(5)
+time.sleep(2)
 
 ubidotsToken = "TOKEN"
 clientID = "CLIENTID"
