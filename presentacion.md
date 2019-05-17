@@ -21,7 +21,9 @@ template: invert
 
 ---
 
-
+![very good|512x39 100%](recursos/iotdiagram.png)
+Ejemplo de Internet of Things Architecture de Cloudcraft
+[Cloudcraft](https://cloudcraft.co/app)
 
 ---
 
@@ -55,15 +57,17 @@ template: invert
 
 ---
 
+![bg](recursos/bckimage.png)
 ### Cloud Services
 
 ---
 
+![bg](recursos/bckimage.png)
 ## MQTT y MicroPython
 
 ---
 
-<!-- $theme: default -->
+![bg](recursos/bckimage.png)
 ## Demostración
 
 ### Código
@@ -77,7 +81,7 @@ import time
 ~~~~
 
 ---
-
+![bg](recursos/bckimage.png)
 #### Conexión WiFi
 
 ~~~~ python
@@ -88,7 +92,7 @@ time.sleep(5)
 ~~~~
 
 ---
-
+![bg](recursos/bckimage.png)
 #### Configuración Ubidots items
 ~~~~ python
 ubidotsToken = "ubiotstoken"
@@ -106,7 +110,7 @@ client.connect()
 ~~~~
 
 ---
-
+![bg](recursos/bckimage.png)
 #### Publish
 ~~~~ python
 msg = b'{"temp":20}'
@@ -129,7 +133,7 @@ while True:
 ~~~~
 
 ---
-
+![bg](recursos/bckimage.png)
 ##### Links a repos
 
 * https://github.com/FunPythonEC/MQTT_CLOUD_FLISOL19
@@ -148,7 +152,7 @@ while True:
 ---
 
 <!-- $theme: default -->
-![bg original 70%](recursos/fpyig.jpeg)
+![bg original 50%](recursos/fpyig.jpeg)
 
 
 
