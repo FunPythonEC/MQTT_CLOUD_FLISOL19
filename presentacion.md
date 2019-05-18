@@ -148,7 +148,7 @@ while True:
 * GitHub: https://github.com/FunPythonEC
 * Correo: funpython.ec@gmail.com
 * Instagram: @funpython
-
+![bg original 150%](recursos/cclicense.png)
 ---
 
 <!-- $theme: default -->
