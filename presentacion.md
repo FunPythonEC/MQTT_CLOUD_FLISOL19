@@ -148,6 +148,8 @@ while True:
 * GitHub: https://github.com/FunPythonEC
 * Correo: funpython.ec@gmail.com
 * Instagram: @funpython
+* Steven Silva - @sasilva1998
+* Jhon Merchan - @jhon_p16
 ![bg original 150%](recursos/cclicense.png)
 ---
 
