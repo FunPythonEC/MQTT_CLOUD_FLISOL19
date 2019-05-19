@@ -17,7 +17,7 @@ time.sleep(5)
 #token, clientid y topic al que se desea subscribirse
 ubidotsToken = "TOKEN"
 clientID = "CLIENTID"
-topic="/v1.6/devices/{devicelabel}" #el topic define a que device en especifico es que se va a subir datos
+topic="/v1.6/devices/{devicelabel}/{labelvariable}/lv" #el topic define a que device en especifico es que se va a subir datos
                                  #b"/v1.6/devices/{NOMBRE_DISPOSITIVO}" en el que NOMBRE_DISPOSITIVO es quien
                                  #define entre los devices creados al cual se quiere subir el dato
 

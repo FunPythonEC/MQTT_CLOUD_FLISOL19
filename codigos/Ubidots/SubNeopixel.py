@@ -25,7 +25,7 @@ time.sleep(5)
 #para la conexión a ubidots es necesario un token
 ubidotsToken = "TOKEN"
 clientID = "CLIENTID"
-topic=b"/v1.6/devices/{devicelabel}" #el topic define a que device en especifico es que se va a subir datos
+topic=b"/v1.6/devices/{devicelabel}/{variable}/lv" #el topic define a que device en especifico es que se va a subir datos
                                  #b"/v1.6/devices/{NOMBRE_DISPOSITIVO}" en el que NOMBRE_DISPOSITIVO es quien
                                  #define entre los devices creados al cual se quiere subir el dato
 

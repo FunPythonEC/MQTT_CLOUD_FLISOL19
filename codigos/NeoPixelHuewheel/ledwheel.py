@@ -23,8 +23,6 @@ topic=b"/v1.6/devices/espprueba" #el topic define a que device en especifico es 
 client = MQTTClient(clientID, "industrial.api.ubidots.com", 1883, user = ubidotsToken, password = ubidotsToken) #creacion de objeto
 client.connect() #conexion a ubidots
 
-np = NeoPixel(Pin(13), 1)
-
 def _httpHandlerLEDPost(httpClient, httpResponse):
     content = httpClient.ReadRequestContent()  # Read JSON color data
     colors = json.loads(content)
